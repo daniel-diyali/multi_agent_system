@@ -14,6 +14,9 @@ uvicorn==0.24.0
 streamlit==1.28.1
 pydantic==2.5.0
 
+# Voice Integration
+websockets==12.0
+
 # Evaluation
 deepeval==0.21.73
 langsmith==0.1.117
