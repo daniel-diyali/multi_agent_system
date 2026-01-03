@@ -1,0 +1,77 @@
+[
+  {
+    "query": "My bill is $50 higher than last month, why?",
+    "expected_intent": "billing_inquiry",
+    "should_escalate": false
+  },
+  {
+    "query": "I can't remember my account password",
+    "expected_intent": "account_management",
+    "should_escalate": false
+  },
+  {
+    "query": "How do I upgrade to unlimited data?",
+    "expected_intent": "account_management", 
+    "should_escalate": false
+  },
+  {
+    "query": "I want to cancel my service right now",
+    "expected_intent": "escalation",
+    "should_escalate": true
+  },
+  {
+    "query": "What are your international roaming rates?",
+    "expected_intent": "billing_inquiry",
+    "should_escalate": false
+  },
+  {
+    "query": "I need to speak with a supervisor immediately",
+    "expected_intent": "escalation", 
+    "should_escalate": true
+  },
+  {
+    "query": "My phone has no signal at home",
+    "expected_intent": "technical_support",
+    "should_escalate": false
+  },
+  {
+    "query": "I'm very dissatisfied with your customer service",
+    "expected_intent": "complaint",
+    "should_escalate": true
+  },
+  {
+    "query": "Do you offer family plans?",
+    "expected_intent": "general_info",
+    "should_escalate": false
+  },
+  {
+    "query": "I was charged twice for the same thing",
+    "expected_intent": "billing_inquiry",
+    "should_escalate": false
+  },
+  {
+    "query": "How do I add a line to my account?",
+    "expected_intent": "account_management",
+    "should_escalate": false
+  },
+  {
+    "query": "This is ridiculous, I want my money back",
+    "expected_intent": "complaint",
+    "should_escalate": true
+  },
+  {
+    "query": "What's included in your premium plan?",
+    "expected_intent": "general_info", 
+    "should_escalate": false
+  },
+  {
+    "query": "I need help setting up my new phone",
+    "expected_intent": "technical_support",
+    "should_escalate": false
+  },
+  {
+    "query": "Can I pay my bill over the phone?",
+    "expected_intent": "billing_inquiry",
+    "should_escalate": false
+  }
+]
