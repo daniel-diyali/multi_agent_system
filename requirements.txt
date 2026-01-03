@@ -1,0 +1,24 @@
+# Core Framework
+langgraph==0.2.16
+langchain==0.2.16
+langchain-openai==0.1.23
+langchain-community==0.2.16
+
+# Vector Database
+chromadb==0.5.5
+sentence-transformers==2.7.0
+
+# API & Web
+fastapi==0.104.1
+uvicorn==0.24.0
+streamlit==1.28.1
+pydantic==2.5.0
+
+# Evaluation
+deepeval==0.21.73
+langsmith==0.1.117
+
+# Utilities
+python-dotenv==1.0.0
+pyyaml==6.0.1
+pytest==7.4.3
