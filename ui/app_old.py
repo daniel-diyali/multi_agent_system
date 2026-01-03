@@ -1,9 +1,7 @@
 import streamlit as st
-import sys
-import os
-
-# Add project root to path for imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import requests
+import json
+from datetime import datetime
 
 st.set_page_config(
     page_title="Multi-Agent Customer Service Demo",
@@ -88,15 +86,12 @@ if query:
     with st.chat_message("user"):
         st.markdown(query)
     
-    # Process query through orchestrator
+    # Process query through API
     with st.chat_message("assistant"):
         with st.spinner("Processing your request..."):
             try:
-                # Import and use the actual orchestrator
-                from agents.orchestrator import OrchestratorAgent
-                
-                # Initialize orchestrator
-                orchestrator = OrchestratorAgent()
+                # Simulate API call (replace with actual API when running)
+                # For demo purposes, we'll create a mock response
                 
                 # Mock customer context
                 customer_context = {
@@ -106,24 +101,34 @@ if query:
                     "account_status": "Active"
                 }
                 
-                # Process query through the actual system
-                result = orchestrator.process_query(
-                    query,
-                    user_id="demo_user",
-                    customer_context=customer_context
-                )
+                # This would be the actual API call:
+                # response = requests.post("http://localhost:8000/chat", 
+                #     json={
+                #         "user_id": "demo_user",
+                #         "message": query,
+                #         "customer_context": customer_context
+                #     })
                 
-                st.markdown(result["response"])
+                # Mock response for demo
+                mock_response = {
+                    "response": f"I understand you're asking about: '{query}'. Let me help you with that. Based on your account information, I can see you have an active Unlimited Plus plan. I'll connect you with the appropriate specialist to resolve your inquiry.",
+                    "intent": "billing_inquiry" if "bill" in query.lower() else "account_management",
+                    "confidence": 0.85,
+                    "requires_escalation": "cancel" in query.lower() or "manager" in query.lower(),
+                    "agent_used": "billing_specialist"
+                }
+                
+                st.markdown(mock_response["response"])
                 
                 # Add assistant response with metadata
                 st.session_state.messages.append({
                     "role": "assistant", 
-                    "content": result["response"],
+                    "content": mock_response["response"],
                     "metadata": {
-                        "intent": result["intent"],
-                        "confidence": result["confidence"],
-                        "requires_escalation": result["requires_escalation"],
-                        "agent_used": "billing_specialist" if result["intent"] == "billing_inquiry" else "account_specialist"
+                        "intent": mock_response["intent"],
+                        "confidence": mock_response["confidence"],
+                        "requires_escalation": mock_response["requires_escalation"],
+                        "agent_used": mock_response["agent_used"]
                     }
                 })
                 
@@ -131,18 +136,15 @@ if query:
                 with st.expander("Response Details"):
                     col1, col2, col3 = st.columns(3)
                     with col1:
-                        st.metric("Intent", result["intent"])
+                        st.metric("Intent", mock_response["intent"])
                     with col2:
-                        st.metric("Confidence", f"{result['confidence']:.2f}")
+                        st.metric("Confidence", f"{mock_response['confidence']:.2f}")
                     with col3:
-                        escalation_color = "🔴" if result["requires_escalation"] else "🟢"
-                        st.metric("Escalation", f"{escalation_color} {'Yes' if result['requires_escalation'] else 'No'}")
+                        escalation_color = "🔴" if mock_response["requires_escalation"] else "🟢"
+                        st.metric("Escalation", f"{escalation_color} {'Yes' if mock_response['requires_escalation'] else 'No'}")
                 
             except Exception as e:
                 st.error(f"Error processing request: {str(e)}")
-                # Fallback to simple response
-                fallback_response = f"I understand you're asking about: '{query}'. Let me connect you with the appropriate specialist to help resolve your inquiry."
-                st.markdown(fallback_response)
 
 # System metrics section
 st.header("System Performance")
@@ -169,3 +171,16 @@ This multi-agent system demonstrates T-Mobile's IntentCX architecture with:
 
 Built with LangGraph, OpenAI GPT-4, and Chroma vector database.
 """)
+
+# Instructions for running with actual API
+with st.expander("Running with Live API"):
+    st.code("""
+# Terminal 1: Start the API server
+cd multi_agent_system
+python -m uvicorn api.main:app --reload
+
+# Terminal 2: Start Streamlit
+streamlit run ui/app.py
+
+# The demo will automatically connect to the API at localhost:8000
+    """, language="bash")

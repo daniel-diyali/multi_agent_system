@@ -67,14 +67,14 @@ class OrchestratorAgent:
         intent = state["current_intent"]
         confidence = state["confidence"]
         
-        # Low confidence -> escalate
-        if confidence < 0.7:
+        # Low confidence -> escalate (except for greetings)
+        if confidence < 0.7 and intent != "general_info":
             return "escalation"
         
         # Route based on intent
         if intent in ["billing_inquiry", "payment_issue"]:
             return "billing"
-        elif intent in ["account_management", "password_reset"]:
+        elif intent in ["account_management", "password_reset", "general_info"]:
             return "account"
         else:
             return "escalation"

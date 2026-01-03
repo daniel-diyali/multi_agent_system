@@ -1,31 +1,44 @@
-# Billing Policies and Procedures
+# Billing Policies and Information
+
+## Monthly Billing Cycle
+Your bill is generated on the same date each month. Charges include:
+- Monthly service fees
+- Device payments
+- Usage overages
+- Taxes and regulatory fees
 
 ## Payment Methods
-- Credit/Debit Cards: Visa, MasterCard, American Express, Discover
-- Bank Account: ACH automatic payments available
-- Online: Pay through customer portal or mobile app
-- Phone: Call customer service for phone payments ($5 fee applies)
+We accept:
+- Credit/debit cards
+- Bank account (ACH)
+- Online payments
+- AutoPay (with discount)
 
-## Billing Cycles
-- Monthly billing on the same date each month
-- Bills generated 3-5 days before due date
-- Late fee of $25 applies after 10 days past due
-- Service suspension after 30 days past due
+## Late Payment Policy
+- Grace period: 10 days after due date
+- Late fee: $5 for balances under $100, $10 for higher balances
+- Service suspension: After 30 days past due
 
-## Plan Changes
-- Upgrades take effect immediately
-- Downgrades take effect next billing cycle
-- Pro-rated charges apply for mid-cycle changes
-- No fees for plan changes within first 14 days
+## Bill Disputes
+If you notice incorrect charges:
+1. Contact customer service within 60 days
+2. Provide details of disputed charges
+3. We'll investigate and adjust if necessary
+4. Credits appear on next bill
 
-## Dispute Process
-1. Contact customer service within 60 days of bill date
-2. Provide account number and specific charges in question
-3. Investigation takes 5-10 business days
-4. Credits applied to next bill if dispute is valid
+## AutoPay Benefits
+- $5 monthly discount
+- Never miss a payment
+- Automatic payment on due date
+- Email confirmation sent
 
-## International Charges
-- International roaming rates vary by country
-- Travel passes available for $10-15/day
-- Data usage abroad charged at $2.05/MB without pass
-- Text messages: $0.50 to send, free to receive
+## Overage Charges
+- Data overage: $10 per GB
+- International calls: Varies by country
+- Premium text messages: $0.25 each
+
+## Family Plan Billing
+- Primary account holder receives consolidated bill
+- Individual line charges shown separately
+- Shared data pool usage tracked
+- Device payments listed per line

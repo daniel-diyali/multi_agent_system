@@ -1,33 +1,55 @@
 # Account Management Guide
 
 ## Password Reset
-1. Go to account login page
+To reset your account password:
+1. Visit the login page
 2. Click "Forgot Password"
-3. Enter email or phone number associated with account
-4. Check email/SMS for reset code
-5. Enter code and create new password
-6. Password must be 8+ characters with numbers and symbols
+3. Enter your phone number or email
+4. Check for verification code
+5. Create new password (8+ characters, mix of letters/numbers)
 
-## Plan Upgrades
-- Unlimited plans: $70-90/month per line
-- Family plans: Discounts for 2+ lines
-- 5G access included in all unlimited plans
-- Hotspot data: 10-40GB depending on plan
+## Plan Changes
+You can change your plan:
+- Online through your account
+- By calling customer service
+- At retail stores
+- Changes take effect next billing cycle
+
+## Available Plans
+- Basic: $30/month, 2GB data
+- Plus: $50/month, 10GB data
+- Unlimited: $70/month, unlimited data
+- Family: $120/month, 4 lines unlimited
 
 ## Account Security
-- Two-factor authentication recommended
-- Security questions required for phone support
-- Account PIN: 4-6 digits for identity verification
-- Authorized users can be added for account access
+- Enable two-factor authentication
+- Use strong, unique passwords
+- Monitor account activity regularly
+- Report suspicious activity immediately
 
-## Device Management
-- Up to 10 devices per account
-- Device insurance: $7-15/month per device
-- Trade-in program available for upgrades
-- BYOD (Bring Your Own Device) supported
+## Adding Lines
+To add a new line:
+1. Log into your account
+2. Select "Add Line"
+3. Choose device and plan
+4. Complete credit check if required
+5. Activate new device
 
-## Family Controls
-- Content filtering available
-- Usage alerts and limits
-- Spending controls for additional charges
-- Location sharing with family members
+## Device Upgrades
+- Eligible after 12 months of payments
+- Trade-in credits available
+- Early upgrade fees may apply
+- Keep unlimited plan with upgrade
+
+## Account Suspension
+Temporary suspension options:
+- Military deployment
+- Extended travel
+- Financial hardship
+- Seasonal suspension (up to 90 days)
+
+## Authorized Users
+- Add up to 5 authorized users
+- They can make account changes
+- Remove authorization anytime
+- Separate login credentials required
