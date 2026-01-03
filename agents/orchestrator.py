@@ -5,6 +5,7 @@ from agents.intent_classifier import IntentClassifier
 from agents.billing_specialist import BillingSpecialist
 from agents.account_specialist import AccountSpecialist
 from agents.escalation_handler import EscalationHandler
+from agents.conversation_memory import ConversationMemory
 
 class AgentState(TypedDict):
     messages: list
@@ -13,6 +14,7 @@ class AgentState(TypedDict):
     customer_context: dict
     response: str
     requires_escalation: bool
+    conversation_context: str
 
 class OrchestratorAgent:
     def __init__(self):
@@ -20,6 +22,7 @@ class OrchestratorAgent:
         self.billing_agent = BillingSpecialist()
         self.account_agent = AccountSpecialist()
         self.escalation_agent = EscalationHandler()
+        self.memory = ConversationMemory()
         self.graph = self._build_graph()
     
     def _build_graph(self):
@@ -95,17 +98,36 @@ class OrchestratorAgent:
         state["requires_escalation"] = True
         return state
     
-    def process_query(self, query: str, customer_context: dict = None) -> dict:
+    def process_query(self, query: str, user_id: str = "default", customer_context: dict = None) -> dict:
+        # Get conversation history
+        conversation_history = self.memory.get_conversation(user_id)
+        context_summary = self.memory.get_context_summary(user_id)
+        
+        # Add current query to memory
+        self.memory.add_message(user_id, "user", query)
+        
         initial_state = {
             "messages": [{"role": "user", "content": query}],
             "current_intent": "",
             "confidence": 0.0,
             "customer_context": customer_context or {},
             "response": "",
-            "requires_escalation": False
+            "requires_escalation": False,
+            "conversation_context": context_summary
         }
         
         result = self.graph.invoke(initial_state)
+        
+        # Add response to memory
+        self.memory.add_message(
+            user_id, 
+            "assistant", 
+            result["response"],
+            {
+                "intent": result["current_intent"],
+                "confidence": result["confidence"]
+            }
+        )
         
         return {
             "response": result["response"],

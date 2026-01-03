@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List, Dict, Optional
 from agents.orchestrator import OrchestratorAgent
-from evaluation.metrics import EvaluationMetrics
+from evaluation.eval_runner import ComprehensiveEvaluator
 import uvicorn
 
 app = FastAPI(
@@ -13,7 +13,7 @@ app = FastAPI(
 
 # Initialize agents
 orchestrator = OrchestratorAgent()
-evaluator = EvaluationMetrics()
+evaluator = ComprehensiveEvaluator()
 
 class CustomerQuery(BaseModel):
     user_id: str
@@ -32,10 +32,11 @@ class AgentResponse(BaseModel):
 async def chat_endpoint(query: CustomerQuery):
     """Main chat endpoint that routes queries through the orchestrator"""
     try:
-        # Process query through orchestrator
+        # Process query through orchestrator with user ID for conversation memory
         result = orchestrator.process_query(
             query.message, 
-            query.customer_context or {}
+            user_id=query.user_id,
+            customer_context=query.customer_context or {}
         )
         
         # Determine which agent was used based on intent
@@ -63,7 +64,7 @@ async def chat_endpoint(query: CustomerQuery):
 
 @app.post("/evaluate")
 async def evaluate_system():
-    """Run evaluation metrics on the system"""
+    """Run comprehensive evaluation metrics on the system"""
     try:
         results = evaluator.run_full_evaluation()
         return results
@@ -88,6 +89,15 @@ async def root():
             "docs": "/docs - API documentation"
         }
     }
+
+@app.get("/conversation/{user_id}")
+async def get_conversation_history(user_id: str):
+    """Get conversation history for a user"""
+    try:
+        history = orchestrator.memory.get_conversation(user_id)
+        return {"user_id": user_id, "conversation_history": history}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error retrieving conversation: {str(e)}")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
