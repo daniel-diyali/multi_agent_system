@@ -1,6 +1,6 @@
 # Multi-Agent Customer Service System
 
-A production-ready multi-agent AI system inspired by T-Mobile's IntentCX architecture. Demonstrates intent-driven customer service with specialized agents, RAG integration, and comprehensive evaluation.
+A production-ready multi-agent AI system for intelligent customer service. Demonstrates advanced intent-driven routing with specialized agents, RAG integration, and comprehensive evaluation.
 
 ## 🎯 Key Features
 
@@ -29,11 +29,11 @@ A production-ready multi-agent AI system inspired by T-Mobile's IntentCX archite
 └───────┘ └───────┘ └───────┘ └───────┘
                 │
                 ▼
-        ┌───────────────┐
+        ┌────────────────┐
         │ VECTOR DATABASE│
         │(Customer Data, │
         │ FAQs, Policies)│
-        └───────────────┘
+        └────────────────┘
 ```
 
 ## 🚀 Quick Start
@@ -103,15 +103,15 @@ multi_agent_system/
 └── data/                  # Sample customer data
 ```
 
-## 🎯 T-Mobile Alignment
+## 🎯 Advanced AI Architecture
 
-This project demonstrates key T-Mobile IntentCX capabilities:
+This project demonstrates key enterprise AI capabilities:
 
 - **Multi-agent coordination** with centralized orchestration
 - **Intent-driven routing** with confidence thresholds
 - **Customer context integration** via RAG
 - **Production evaluation** with business metrics
-- **Scalable architecture** for millions of interactions
+- **Scalable architecture** for high-volume interactions
 
 ## 📈 Next Steps
 

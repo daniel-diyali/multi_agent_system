@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 st.title("🤖 Multi-Agent Customer Service System")
-st.markdown("*Inspired by T-Mobile's IntentCX Architecture*")
+st.markdown("*Advanced AI-powered customer support with intelligent routing*")
 
 # Sidebar with system information
 with st.sidebar:
@@ -161,11 +161,11 @@ with col4:
 st.markdown("---")
 st.markdown("""
 **About this Demo:**
-This multi-agent system demonstrates T-Mobile's IntentCX architecture with:
+This multi-agent system demonstrates advanced AI customer service with:
 - Intent-driven routing to specialist agents
 - RAG integration for customer context
 - Confidence-based escalation decisions
 - Production-ready evaluation metrics
 
-Built with LangGraph, OpenAI GPT-4, and Chroma vector database.
+Built with LangGraph, LangChain, OpenAI GPT-4, and Chroma vector database.
 """)
